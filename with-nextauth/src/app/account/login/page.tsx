@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-import Loginform from "@/components/LoginForm";
+import { Button, Input } from "@/components/ui";
 
 import { NavigationEvents } from "@/utils/navigation-events";
 
@@ -51,13 +51,7 @@ export default function LoginPage() {
     return (
       <div className="w-[500px] bg-white shadow-md rounded-lg p-5 mx-auto">
         <h1 className="text-2xl font-bold mb-4">Login</h1>
-        <Loginform
-          onSubmit={handleFormSubmit}
-          setState={setAuthState}
-          authState={authState}
-          error={error}
-        />
-        {/* 
+
         <form onSubmit={handleFormSubmit}>
           <div className="mt-5">
             <Input
@@ -68,7 +62,7 @@ export default function LoginPage() {
               }
             />
           </div>
-  
+
           <div className="mt-5">
             <Input
               type="password"
@@ -79,13 +73,17 @@ export default function LoginPage() {
             />
           </div>
           <div className="mt-5">
-            <Button variant="primary" type="submit" size="lg" className="w-full">
+            <Button
+              variant="primary"
+              type="submit"
+              size="lg"
+              className="w-full"
+            >
               Login
             </Button>
           </div>
           {!!error && <p className="text-red-600 mt-5">ERROR: {error}</p>}
         </form>
-        */}
       </div>
     );
   } else {
